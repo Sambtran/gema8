@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p class="parrafo"> En un lugar de la mancha cuyo nombre no me acuerdo</p>
+<p class="parrafo"> Prueba a subrayar cualquier cosa de esta esta esta <br> esta esta esta esta esta  cualquier</p>
+</body>
+<script>
+  let texto = prompt("dame una palabra")
+  let resultado = document.getElementsByClassName('parrafo')
+  console.log(resultado.length)
+  let elht
+  for (let j = 0; j<resultado.length;j++) {
+    elht = resultado[j];
+    let aux = elht.innerHTML.split(' ')
+    for (let i = 0; i < aux.length ; i++) {
+      console.log("auxiliar numero "+aux[i])
+      console.log("texto es "+texto)
+        if(aux[i]==texto){
+          console.log("IGNACIO")
+          aux[i]=`<mark>${texto}</mark>`
+        }
+    }
+    console.log("auxiliar "+aux)
+    elht.innerHTML=aux.join(' ')
+  }
+</script>
+</html>

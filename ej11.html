@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ol>
+  <li class="listado">
+    ignacio
+  </li>
+  <li class="listado">
+    pedro
+  </li>
+  <li class="listado">
+    alberto
+  </li>
+</ol>
+</body>
+<script>
+  listaviva= document.getElementsByClassName("listado")
+  listaaux=[]
+  for (let elem of listaviva) {
+    listaaux.push(elem.innerHTML)
+  }
+  listaaux.sort()
+  n=3
+  setInterval(() => {
+    console.log(n)
+    if(n<1){
+      if(window.confirm("quieres que se ordene? ")){
+        let j=0
+        for (let elem of listaviva) {
+          elem.innerHTML=listaaux[j]
+          j++
+        }
+      }
+    }n--
+
+  }, 1000);
+</script>
+</html>

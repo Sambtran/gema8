@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>9</title>
+</head>
+<body>
+  <p class="parrafo">
+    parrafo1
+  </p>
+  <p class="parrafo">
+    parrafo2
+  </p>
+  <p class="parrafo">
+    parrafo3
+  </p>  <p class="parrafo">
+    parrafo4
+  </p>
+</body>
+<script>
+  listaviva = document.getElementsByClassName("parrafo")
+  contenido = []
+  contenidovacio=[]
+  for (let elemento of listaviva) {
+    contenido.push(elemento.textContent)
+    contenidovacio.push(" ")
+  }
+  n=contenido.length-1
+  for (let el1 of listaviva) {
+    console.log(n)
+    el1.textContent=contenidovacio[n]
+    n--
+  }
+  let elm = 0
+  setInterval(() => {
+    listaviva[elm].textContent=contenido[elm]
+    elm++
+
+  }, 1000);
+  console.log(contenido)
+</script>
+</html>

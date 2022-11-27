@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body id="cuerpo">
+<p>1 2 3</p>
+<p>4 5 6</p>
+<p>Con esto 10 palabras</p>
+<p>Ahora con esto 14</p>
+</body>
+<script>
+  let total_words=1
+  texto = document.getElementById("cuerpo").innerText.trim().split(' ')
+  let final =false
+  let auxcont = 0
+  for (let palabra of texto) {
+    for (let i = 0;i<palabra.length;i++){
+      if(palabra[i]=="\n"){
+        auxcont+=1
+        console.log("parte " +palabra[i])
+        total_words+=0.5
+      }
+    }
+    let etiqueta = false
+    console.log("palabra  "+palabra)
+    if (palabra[palabra.length]=='>'||palabra[0]=='<'){
+      etiqueta = true
+    }
+    if(palabra==""){
+      final = true
+    }
+    if((!final)&&(!etiqueta)){
+      total_words+=1
+    }
+
+  }
+  console.log(auxcont)
+  if(auxcont>1){
+    console.log((total_words-1))
+  }else{
+    console.log(total_words)
+  }
+
+</script>
+</html>
