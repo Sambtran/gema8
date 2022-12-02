@@ -8,23 +8,37 @@
 
 </body>
 <script>
+    if(confirm("quieres cookies?")){
     console.log()
-    if(document.cookie.indexOf("visitas")==-1){
-        document.cookie='visitas=0'
+    if(document.cookie.indexOf("visitas")==1){
+        document.cookie='visitas=0;';
     }
     let fechan = new Date()
     let fechaexp = new Date()
     fechaexp.setFullYear(fechan.getFullYear()+1)
     console.log(fechaexp)
     let numnuevo = 0
-    let prueba = document.cookie.toString()
-    console.log(prueba)
-    console.log(prueba[prueba.indexOf('visitas')+8])
-     numnuevo = parseInt(prueba[prueba.lastIndexOf('visitas')+8])+1
-
-    document.cookie=`visitas=${numnuevo}`+"     expires="+fechaexp
+    let ac = document.cookie.split(';')
+    var cokaux = []
+    for (let elem of ac) {
+        console.log("elem  "+elem);
+        let[nombre,valor]=elem.split("=")
+        console.log(nombre+valor);
+        let aux = [nombre,valor]
+        console.log(aux);
+        cokaux.push(aux)
+    }
+    console.log(cokaux);
+    for (const cok of cokaux) {
+        for (let cokinterno of cok) {
+            if(cokinterno == 'visitas'){
+                numnuevo = parseInt(cok[1])+1
+            }
+        }
+    }
+    document.cookie=`visitas=${numnuevo};`+"expires="+fechaexp
     alert(document.cookie)
-
+}
 
 
 </script>
